@@ -247,7 +247,7 @@ function getOffsetTop2() {
   if (!menu.classList.contains('hidden')) {
     offset += menu.getBoundingClientRect().bottom;
   }
-  return 0;
+  return offset;
 }
 
 function getOffsetRight() {
@@ -267,7 +267,7 @@ function getScreenHeight() {
 }
 
 function getScreenHeight2() {
-  return window.innerHeight - getOffsetTop() - getOffsetBottom();
+  return window.innerHeight - getOffsetTop2() - getOffsetBottom();
 }
 
 function panAlign(align_x, align_y) {
