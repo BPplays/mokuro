@@ -308,6 +308,13 @@ document
   .getElementById('buttonRightRight')
   .addEventListener('click', inputRightRight, false);
 
+function handleResize() {
+  zoomFitToScreen();
+}
+
+// Add event listener for the resize event
+window.addEventListener('resize', handleResize);
+
 document.addEventListener('keydown', function onEvent(e) {
   switch (e.key) {
     case "ArrowRight":
