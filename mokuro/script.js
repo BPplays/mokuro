@@ -236,6 +236,15 @@ function getOffsetTop() {
   let offset = 0;
   let menu = document.getElementById('topMenu');
   if (!menu.classList.contains('hidden')) {
+    offset += menu.getBoundingClientRect().bottom + 10;
+  }
+  return offset;
+}
+
+function getOffsetTop2() {
+  let offset = 0;
+  let menu = document.getElementById('topMenu');
+  if (!menu.classList.contains('hidden')) {
     offset += menu.getBoundingClientRect().bottom;
   }
   return offset;
@@ -254,6 +263,10 @@ function getScreenWidth() {
 }
 
 function getScreenHeight() {
+  return window.innerHeight - getOffsetTop() - getOffsetBottom();
+}
+
+function getScreenHeight2() {
   return window.innerHeight - getOffsetTop() - getOffsetBottom();
 }
 
@@ -279,7 +292,7 @@ function panAlign(align_x, align_y) {
       y = getOffsetTop();
       break;
     case 'center':
-      y = getOffsetTop() + (getScreenHeight() - pc.offsetHeight * scale) / 2;
+      y = getOffsetTop2() + (getScreenHeight2() - pc.offsetHeight * scale) / 2;
       break;
     case 'bottom':
       y = getOffsetTop() + (getScreenHeight() - pc.offsetHeight * scale);
@@ -305,7 +318,7 @@ function zoomFitToWidth() {
 
 function zoomFitToScreen() {
   let scale_x = getScreenWidth() / pc.offsetWidth;
-  let scale_y = getScreenHeight() / pc.offsetHeight;
+  let scale_y = getScreenHeight2() / pc.offsetHeight;
   let scale = (1 / pz.getTransform().scale) * Math.min(scale_x, scale_y);
   pz.moveTo(0, 0);
   pz.zoomTo(0, 0, scale);
