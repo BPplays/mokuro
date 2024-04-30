@@ -337,7 +337,7 @@ document.addEventListener('keydown', function onEvent(e) {
         prevPage();
         break;
     case "f11":
-      prevPage();
+      zoomFitToScreen();
       break;
 }
 });
