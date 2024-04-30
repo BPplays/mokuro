@@ -682,6 +682,15 @@ function getOffsetTop() {
     return offset;
 }
 
+function getOffsetTop2() {
+    let offset = 0;
+    let menu = document.getElementById('topMenu');
+    if (!menu.classList.contains("hidden")) {
+        offset += menu.getBoundingClientRect().bottom + 10;
+    }
+    return offset;
+}
+
 function getOffsetRight() {
     return 0;
 }
@@ -695,6 +704,10 @@ function getScreenWidth() {
 }
 
 function getScreenHeight() {
+    return window.innerHeight - getOffsetTop() - getOffsetBottom();
+}
+
+function getScreenHeight2() {
     return window.innerHeight - getOffsetTop() - getOffsetBottom();
 }
 
