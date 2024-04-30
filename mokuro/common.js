@@ -336,6 +336,9 @@ document.addEventListener('keydown', function onEvent(e) {
     case " ":
         prevPage();
         break;
+    case "f11":
+      prevPage();
+      break;
 }
 });
 
