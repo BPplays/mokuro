@@ -383,6 +383,12 @@ document.addEventListener('DOMContentLoaded', function () {
         zoomDoubleClickSpeed: 1,
         enableTextSelection: true,
 
+        // add this option
+        filterKey: function( e, dx, dy, dz ) {
+            // don't let panzoom handle this event:
+            return true;
+        },
+
         beforeMouseDown: function (e) {
             let shouldIgnore = disablePanzoomOnElement(e.target) ||
                 (e.target.closest('.textBox') !== null) ||
@@ -618,28 +624,31 @@ document.getElementById('rightAScreen').addEventListener('click', inputRight, fa
 
 document.addEventListener("keydown", function onEvent(e) {
     switch (e.key) {
-        case "PageUp":
+        case "ArrowRight":
             prevPage();
             break;
-
-        case "PageDown":
+  
+        case "ArrowLeft":
             nextPage();
             break;
-
-        case "Home":
+  
+        case "9":
             firstPage();
             break;
-
-        case "End":
+  
+        case "3":
             lastPage();
             break;
-
-        case " ":
+  
+        case "Backspace":
             nextPage();
             break;
-
-        case "0":
-            zoomDefault();
+  
+        case "f":
+            zoomFitToScreen();
+            break;
+        case " ":
+            prevPage();
             break;
     }
 });
@@ -668,7 +677,7 @@ function getOffsetTop() {
     let offset = 0;
     let menu = document.getElementById('topMenu');
     if (!menu.classList.contains("hidden")) {
-        offset += menu.getBoundingClientRect().bottom + 10;
+        offset += menu.getBoundingClientRect().bottom;
     }
     return offset;
 }
