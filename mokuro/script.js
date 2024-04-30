@@ -59,6 +59,11 @@ document.addEventListener(
       zoomDoubleClickSpeed: 1,
       enableTextSelection: true,
 
+      filterKey: function( e, dx, dy, dz ) {
+        // don't let panzoom handle this event:
+        return true;
+      },
+
       beforeMouseDown: function (e) {
         let shouldIgnore =
           disablePanzoomOnElement(e.target) ||
@@ -231,7 +236,7 @@ function getOffsetTop() {
   let offset = 0;
   let menu = document.getElementById('topMenu');
   if (!menu.classList.contains('hidden')) {
-    offset += menu.getBoundingClientRect().bottom + 10;
+    offset += menu.getBoundingClientRect().bottom;
   }
   return offset;
 }

@@ -310,26 +310,33 @@ document
 
 document.addEventListener('keydown', function onEvent(e) {
   switch (e.key) {
-    case 'PageUp':
-      prevPage();
-      break;
+    case "ArrowRight":
+        prevPage();
+        break;
 
-    case 'PageDown':
-      nextPage();
-      break;
+    case "ArrowLeft":
+        nextPage();
+        break;
 
-    case 'Home':
-      firstPage();
-      break;
+    case "9":
+        firstPage();
+        break;
 
-    case 'End':
-      lastPage();
-      break;
+    case "3":
+        lastPage();
+        break;
 
-    case ' ':
-      nextPage();
-      break;
-  }
+    case "Backspace":
+        nextPage();
+        break;
+
+    case "f":
+        zoomFitToScreen();
+        break;
+    case " ":
+        prevPage();
+        break;
+}
 });
 
 function isPageFirstOfPair(page_idx) {
