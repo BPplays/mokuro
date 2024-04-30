@@ -318,7 +318,7 @@ function zoomFitToWidth() {
 
 function zoomFitToScreen() {
   let scale_x = getScreenWidth() / pc.offsetWidth;
-  let scale_y = getScreenHeight2() / pc.offsetHeight;
+  let scale_y = (getScreenHeight2()+getOffsetTop2()) / pc.offsetHeight;
   let scale = (1 / pz.getTransform().scale) * Math.min(scale_x, scale_y);
   pz.moveTo(0, 0);
   pz.zoomTo(0, 0, scale);
