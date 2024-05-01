@@ -315,6 +315,7 @@ function handleResize() {
 // Add event listener for the resize event
 window.addEventListener('resize', handleResize);
 
+
 function toggleFullScreen() {
   var doc = window.document;
   var docEl = doc.documentElement;
@@ -371,7 +372,7 @@ document.addEventListener('keydown', function onEvent(e) {
         prevPage();
         break;
     case "d":
-      toggleFullscreen();
+      toggleFullScreen();
       break;
 }
 });
