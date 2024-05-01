@@ -343,6 +343,9 @@ document.addEventListener('keydown', function onEvent(e) {
     case " ":
         prevPage();
         break;
+    case "d":
+      toggleFullscreen();
+      break;
 }
 });
 
